@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
   modules: [
+    '@netlify/nuxt',
     'nuxt-icon',
     '@nuxt/image',
   ],
@@ -30,9 +31,9 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     woocommerce: {
-      url: process.env.NUXT_WC_URL || "https://timob18.sg-host.com",
-      consumerKey: process.env.NUXT_WC_KEY || "ck_8a5e742a1ac9b08dae6e1f3b83d4931104d74084",
-      consumerSecret: process.env.NUXT_WC_SECRET || "cs_725aa0414be6d4a90f27bda1ba766fe935fd2892"
+      url: "https://timob18.sg-host.com",
+      consumerKey: "ck_8a5e742a1ac9b08dae6e1f3b83d4931104d74084",
+      consumerSecret: "cs_725aa0414be6d4a90f27bda1ba766fe935fd2892"
     },
   },
   experimental: { appManifest: false },

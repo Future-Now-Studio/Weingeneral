@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@netlify/nuxt": "^0.2.18",
     "nuxt": "3.17.0",
     "nuxt-icon": "^0.6.10",
     "sass": "^1.87.0",
