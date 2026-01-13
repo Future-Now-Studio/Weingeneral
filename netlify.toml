@@ -3,7 +3,7 @@
 
 [build]
   command = "npm run build" # how to build your project
-  publish = ".output/public" # where the built project lives
+  publish = "dist" # where the built project lives
 
 [build.environment]
   NODE_VERSION = "18"
