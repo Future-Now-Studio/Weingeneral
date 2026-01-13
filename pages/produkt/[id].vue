@@ -53,7 +53,7 @@
                     :alt="'Product image ' + (index + 1)"
                     width="80"
                     height="80"
-                    cover
+                    contain
                     class="thumbnail"
                     :class="{ 'active': currentImage === image.src }"
                   ></v-img>
@@ -67,7 +67,7 @@
                   :alt="product.name"
                   height="600"
                   class="main-image"
-                  cover
+                  contain
                   v-motion
                   :initial="{ opacity: 0, scale: 0.95 }"
                   :enter="{ opacity: 1, scale: 1, transition: { duration: 500 } }"
@@ -283,11 +283,15 @@ definePageMeta({
   transition: all 0.3s ease;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .thumbnail {
   opacity: 0.7;
   transition: all 0.3s ease;
+  object-fit: contain;
 }
 
 .thumbnail-wrapper:hover .thumbnail,
@@ -300,10 +304,15 @@ definePageMeta({
   overflow: hidden;
   background: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
 }
 
 .main-image {
   transition: transform 0.3s ease;
+  object-fit: contain;
 }
 
 .main-image:hover {

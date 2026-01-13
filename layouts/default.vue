@@ -29,12 +29,17 @@ import TheTopBar from '~/components/TheTopBar.vue';
             <h3 class="text-h5 font-weight-bold mb-6">Quick Links</h3>
             <v-list density="compact" class="bg-transparent">
               <v-list-item
-                v-for="item in ['Startseite', 'Ueber uns', 'Produkte', 'Kontakt']"
-                :key="item"
-                :to="item === 'Startseite' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`"
+                v-for="item in [
+                  { title: 'Startseite', to: '/' },
+                  { title: 'Über uns', to: '/#ueber-uns' },
+                  { title: 'Produkte', to: '/produkte' },
+                  { title: 'Kontakt', to: '/kontakt' },
+                ]"
+                :key="item.title"
+                :to="item.to"
                 class="text-grey-lighten-1 footer-link"
               >
-                {{ item }}
+                {{ item.title }}
               </v-list-item>
             </v-list>
           </v-col>
@@ -43,10 +48,11 @@ import TheTopBar from '~/components/TheTopBar.vue';
           <v-col cols="12" md="3">
             <h3 class="text-h5 font-weight-bold mb-6">Kontakt</h3>
             <v-list density="compact" class="bg-transparent">
-              <v-list-item class="text-grey-lighten-1 footer-link">Email: info@weingeneral.de</v-list-item>
-              <v-list-item class="text-grey-lighten-1 footer-link">Tel: +49 (0) XXX XXX XXX</v-list-item>
-              <v-list-item class="text-grey-lighten-1 footer-link">Adresse: Musterstraße 123</v-list-item>
-              <v-list-item class="text-grey-lighten-1 footer-link">12345 Musterstadt</v-list-item>
+              <v-list-item class="text-grey-lighten-1 footer-link">Geschmacksdestille UG (haftungsbeschränkt)</v-list-item>
+              <v-list-item class="text-grey-lighten-1 footer-link">Dammtordamm 2</v-list-item>
+              <v-list-item class="text-grey-lighten-1 footer-link">20354 Hamburg</v-list-item>
+              <v-list-item class="text-grey-lighten-1 footer-link">Tel.: +49 151 235 396 36</v-list-item>
+              <v-list-item class="text-grey-lighten-1 footer-link">E-Mail: info@geschmacksdestille.de</v-list-item>
             </v-list>
           </v-col>
 

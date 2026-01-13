@@ -4,10 +4,10 @@
 
 <template>
   <div class="top-bar">
-    <v-container class="d-flex align-center justify-center py-3">
+    <v-container class="d-flex align-center justify-center py-1">
       <div class="d-flex align-center">
-        <v-icon icon="mdi-gift-outline" color="white" size="22" class="mr-2"></v-icon>
-        <span class="text-body-lg text-white">300€ Gutschein für Ausstattung ab Warenwert von 1.000€ im Weinsegment</span>
+        <v-icon icon="mdi-gift-outline" color="white" size="18" class="mr-2"></v-icon>
+        <span class="text-body-2 text-white">300€ Gutschein für Ausstattung ab Warenwert von 1.000€ im Weinsegment</span>
       </div>
     </v-container>
   </div>

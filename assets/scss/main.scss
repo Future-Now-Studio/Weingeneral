@@ -2,10 +2,10 @@
 $font-family-base: 'Pathway Gothic One', sans-serif;
 $font-family-display: 'Pathway Gothic One', sans-serif;
 
-// Font size variables
-$font-size-base: 1.5rem; // 20px
-$font-size-lg: 1.5rem;   // 24px
-$font-size-xl: 2rem;  // 28px
+// Unified typography scale (three sizes total)
+$font-size-text: 1.5rem;        // Base text
+$font-size-subheading: 2rem;    // Subheading
+$font-size-heading: 3rem;       // Heading
 
 // Import fonts with more weights
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Pathway+Gothic+One&display=swap');
@@ -15,15 +15,15 @@ $font-size-xl: 2rem;  // 28px
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  --font-size-base: #{$font-size-base};
-  --font-size-lg: #{$font-size-lg};
-  --font-size-xl: #{$font-size-xl};
+  --font-size-text: #{$font-size-text};
+  --font-size-subheading: #{$font-size-subheading};
+  --font-size-heading: #{$font-size-heading};
 }
 
 // Base font settings
 body {
   font-family: $font-family-base;
-  font-size: $font-size-base;
+  font-size: $font-size-text;
   font-weight: var(--font-weight-regular);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -47,15 +47,15 @@ h1, h2, h3, h4, h5, h6,
 .text-h5 { font-size: 2rem !important; }      // 32px
 .text-h6 { font-size: 1.75rem !important; }   // 28px
 
-.text-body-1 { font-size: $font-size-lg !important; }
-.text-body-2 { font-size: $font-size-base !important; }
-.text-subtitle-1 { font-size: $font-size-xl !important; }
-.text-subtitle-2 { font-size: $font-size-lg !important; }
+.text-body-1 { font-size: var(--font-size-text) !important; }
+.text-body-2 { font-size: var(--font-size-text) !important; }
+.text-subtitle-1 { font-size: var(--font-size-subheading) !important; }
+.text-subtitle-2 { font-size: var(--font-size-text) !important; }
 
 // Vuetify overrides
 .v-application {
   font-family: $font-family-base !important;
-  font-size: $font-size-base;
+  font-size: $font-size-text;
   
   .text-h1, .text-h2, .text-h3, .text-h4, .text-h5, .text-h6 {
     font-family: $font-family-display !important;
@@ -79,8 +79,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 // Text size utility classes
-.text-large { font-size: $font-size-lg !important; }
-.text-xlarge { font-size: $font-size-xl !important; }
+.text-large { font-size: var(--font-size-subheading) !important; }
+.text-xlarge { font-size: var(--font-size-heading) !important; }
 
 // Custom transitions
 .fade-enter-active,
@@ -211,3 +211,49 @@ h1, h2, h3, h4, h5, h6,
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 } 
+
+/* ===========================================
+   Unified Typography Overrides
+   Exactly three font sizes site-wide:
+   - Heading, Subheading, Text
+=========================================== */
+
+/* Expose CSS custom properties */
+:root {
+  --font-size-text: #{$font-size-text};
+  --font-size-subheading: #{$font-size-subheading};
+  --font-size-heading: #{$font-size-heading};
+}
+
+/* Headings */
+h1, h2, h3,
+.text-h1, .text-h2, .text-h3 {
+  font-size: var(--font-size-heading) !important;
+}
+
+h4, h5, h6,
+.text-h4, .text-h5, .text-h6,
+.section-title {
+  font-size: var(--font-size-subheading) !important;
+}
+
+/* Body/subtitles/text */
+p,
+.text-body-1, .text-body-2,
+.text-subtitle-1, .text-subtitle-2,
+.body-text {
+  font-size: var(--font-size-text) !important;
+}
+
+/* Buttons use default Vuetify sizing */
+
+/* Responsive scale — keep 3 sizes only */
+@media (max-width: 960px) {
+  :root {
+    --font-size-heading: 2.25rem;
+    --font-size-subheading: 1.6rem;
+    --font-size-text: 1.25rem;
+  }
+}
+
+/* Reset: no custom button overrides */

@@ -64,52 +64,44 @@ definePageMeta({
           md="4"
           class="d-flex"
         >
-          <NuxtLink 
-            :to="product.to" 
-            class="text-decoration-none d-flex w-100"
-          >
+          <NuxtLink :to="product.to" class="text-decoration-none d-flex w-100">
             <v-card
-              class="d-flex flex-column w-100"
-              elevation="2"
+              rounded="lg"
+              elevation="0"
+              class="product-card d-flex flex-column w-100 h-100"
               v-motion
               :initial="{ opacity: 0, y: 50 }"
               :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: index * 200 } }"
-              whileHover="{ y: -10, transition: { duration: 300 } }"
             >
               <v-img
                 :src="product.image"
-                height="300"
+                height="250"
+                width="100%"
                 cover
-                class="flex-grow-0"
+                class="product-media"
               >
-                <template v-slot:placeholder>
-                  <v-row
-                    class="fill-height ma-0"
-                    align="center"
-                    justify="center"
-                  >
-                    <v-progress-circular
-                      indeterminate
-                      color="grey-lighten-5"
-                    ></v-progress-circular>
+                <template #placeholder>
+                  <v-row class="fill-height ma-0" align="center" justify="center">
+                    <v-progress-circular indeterminate color="grey-lighten-5" />
                   </v-row>
                 </template>
               </v-img>
 
-              <v-card-text class="d-flex flex-column flex-grow-1 pa-6">
-                <h3 class="heading-2 mb-4" style="font-size: 2rem; font-weight: 800;">{{ product.title }}</h3>
-                <p class="body-1 flex-grow-1" style="font-size: 1.15rem;">{{ product.description }}</p>
+              <v-card-text class="pa-6">
+                <h3 class="product-title mb-3" style="font-size: 2.5em !important;">{{ product.title }}</h3>
+                <p class="product-desc mb-0">{{ product.description }}</p>
               </v-card-text>
 
-              <v-card-actions class="pa-6 pt-0">
+              <v-card-actions class="px-6 pb-6 pt-0">
                 <v-btn
                   color="primary"
-                  size="x-large"
-                  class="body-text text-button"
+                  size="large"
+                  block
+                  class="product-cta"
                   :to="product.to"
                   v-motion
-                  whileHover="{ scale: 1.05 }"
-                  whileTap="{ scale: 0.95 }"
+                  whileHover="{ scale: 1.03 }"
+                  whileTap="{ scale: 0.98 }"
                 >
                   {{ product.cta }}
                 </v-btn>
@@ -121,7 +113,7 @@ definePageMeta({
     </v-container>
 
     <!-- About Section -->
-    <v-container class="py-16">
+    <v-container class="py-16" id="ueber-uns">
       <div class="about-section">
         <h2 class="heading-2 section-title d-inline-block w-100"
           v-motion
@@ -216,37 +208,7 @@ definePageMeta({
       </v-row>
     </v-container>
 
-    <!-- Features Section -->
-    <v-container class="py-16">
-      <v-row>
-        <v-col 
-          v-for="(feature, index) in [
-            { icon: 'mdi-truck', title: 'Kostenloser Versand', desc: 'Für alle Bestellungen' },
-            { icon: 'mdi-lock', title: 'Sichere Zahlung', desc: '100% sicher' },
-            { icon: 'mdi-headset', title: '365 Tage Service', desc: 'Engagierte Unterstützung von wahren Experten' },
-            { icon: 'mdi-gift', title: '300€ Bonus für Ausstattung', desc: 'Ab 1.000€ Bestellwert im Weinsektor' }
-          ]"
-          :key="feature.title"
-          cols="12" 
-          md="3" 
-          class="text-center"
-          v-motion
-          :initial="{ opacity: 0, y: 20 }"
-          :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: index * 200 } }"
-        >
-          <v-icon 
-            size="48" 
-            color="primary" 
-            class="mb-4"
-            v-motion
-            whileHover="{ scale: 1.2, rotate: 360 }"
-            transition="{ duration: 0.5 }"
-          >{{ feature.icon }}</v-icon>
-          <h3 class="heading-2 mb-2">{{ feature.title }}</h3>
-          <p class="body-2">{{ feature.desc }}</p>
-        </v-col>
-      </v-row>
-    </v-container>
+    
   </div>
 </template>
 
@@ -303,6 +265,51 @@ definePageMeta({
 
 .v-card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.product-card {
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.12) !important;
+}
+
+.product-media {
+  width: 100% !important;
+  height: 250px !important;
+  min-height: 250px !important;
+  max-height: 250px !important;
+  object-fit: cover !important;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  flex-shrink: 0;
+}
+
+.product-title {
+  font-size: var(--font-size-text);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
+  color: #1f2937;
+  text-transform: uppercase;
+}
+
+.product-desc {
+  font-size: 1rem;
+  color: rgba(0,0,0,0.72);
+}
+
+.product-cta {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  width: 100%;
+  min-height: 56px !important;
+  padding: 1.1rem 1.5rem !important;
+  border-radius: 8px;
+  font-size: 1rem !important;
 }
 
 .v-card-text {
@@ -470,13 +477,13 @@ definePageMeta({
 
 .title-background {
   background-color: #9a1915;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   width: 100%;
   display: block;
 }
 
 .title-content {
-  max-width: 420px;
+  max-width: 360px;
   margin: 0 auto;
   text-align: center;
 }
@@ -487,6 +494,7 @@ definePageMeta({
   letter-spacing: 1px;
   text-transform: uppercase;
   font-family: var(--font-family-base);
+  font-size: var(--font-size-text);
 }
 
 .about-text-container {

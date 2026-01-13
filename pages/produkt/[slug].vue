@@ -38,7 +38,7 @@
                       :alt="'Product image ' + (index + 1)"
                       width="80"
                       height="80"
-                      cover
+                      contain
                       class="thumbnail"
                       :class="{ 'active': currentImage === image.src }"
                     ></v-img>
@@ -52,7 +52,7 @@
                     :alt="product?.name"
                     height="600"
                     class="main-image"
-                    cover
+                    contain
                   >
                     <template v-slot:placeholder>
                       <v-row class="fill-height ma-0" align="center" justify="center">
@@ -248,11 +248,15 @@ onMounted(() => {
   transition: all 0.3s ease;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .thumbnail {
   opacity: 0.7;
   transition: all 0.3s ease;
+  object-fit: contain;
 }
 
 .thumbnail.active {
@@ -268,12 +272,17 @@ onMounted(() => {
   border-radius: 8px;
   overflow: hidden;
   background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
 }
 
 .main-image {
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 .product-info {

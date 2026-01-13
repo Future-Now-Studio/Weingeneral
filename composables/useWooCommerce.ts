@@ -17,18 +17,10 @@ interface Category {
 }
 
 export const useWooCommerce = () => {
-  const config = useRuntimeConfig();
-
-  const baseUrl = 'https://weingeneral.de/weingeneral/wp-json/wc/v3';
-  const consumerKey = 'ck_f569f9d15352cd965f14e58d00cfde131e628a93';
-  const consumerSecret = 'cs_bd541bb1dda1dce7e1baa7d3832ca42e412dc1b4';
+  const baseUrl = '/api/wc';
 
   const makeRequest = async (endpoint: string, params: Record<string, any> = {}) => {
-    const searchParams = new URLSearchParams({
-      consumer_key: consumerKey,
-      consumer_secret: consumerSecret,
-      ...params
-    });
+    const searchParams = new URLSearchParams({ ...params });
 
     const url = `${baseUrl}/${endpoint}?${searchParams.toString()}`;
 

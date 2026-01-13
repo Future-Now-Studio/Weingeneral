@@ -30,9 +30,9 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     woocommerce: {
-      url: "https://weingeneral.de/weingeneral",
-      consumerKey: "ck_f569f9d15352cd965f14e58d00cfde131e628a93",
-      consumerSecret: "cs_bd541bb1dda1dce7e1baa7d3832ca42e412dc1b4"
+      url: process.env.NUXT_WC_URL || "https://timob18.sg-host.com",
+      consumerKey: process.env.NUXT_WC_KEY || "ck_8a5e742a1ac9b08dae6e1f3b83d4931104d74084",
+      consumerSecret: process.env.NUXT_WC_SECRET || "cs_725aa0414be6d4a90f27bda1ba766fe935fd2892"
     },
   },
   experimental: { appManifest: false },

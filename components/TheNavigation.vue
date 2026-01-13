@@ -18,7 +18,7 @@ onUnmounted(() => {
 
 const navItems = [
   { title: 'Startseite', to: '/' },
-  { title: 'Ueber uns', to: '/ueber-uns' },
+  { title: 'Über uns', to: '/#ueber-uns' },
   { 
     title: 'Produkte', 
     children: [
@@ -202,8 +202,9 @@ const navItems = [
 }
 
 .logo {
-  height: 40px;
+  height: 52px;
   width: auto;
+  padding: 8px 0;
 }
 
 .nav-item {
@@ -211,7 +212,7 @@ const navItems = [
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 
 .nav-link {
@@ -237,7 +238,7 @@ const navItems = [
 
 .text-nav {
   font-family: var(--font-family-base);
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   letter-spacing: 0.5px;
 }
 

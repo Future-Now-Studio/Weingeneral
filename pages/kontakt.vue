@@ -127,6 +127,25 @@
                 </ul>
               </div>
 
+              <div class="contact-details base-font mb-8">
+                <h3 class="text-h5 mb-4 display-font">Kontaktinformationen</h3>
+                <div class="contact-info">
+                  <p class="mb-2">
+                    <strong>Geschmacksdestille UG (haftungsbeschränkt)</strong>
+                  </p>
+                  <p class="mb-2">Dammtordamm 2</p>
+                  <p class="mb-2">20354 Hamburg</p>
+                  <p class="mb-2">
+                    <v-icon color="primary" size="small" class="me-2">mdi-phone</v-icon>
+                    Tel.: +49 151 235 396 36
+                  </p>
+                  <p class="mb-4">
+                    <v-icon color="primary" size="small" class="me-2">mdi-email</v-icon>
+                    E-Mail: <a href="mailto:info@geschmacksdestille.de" class="text-primary">info@geschmacksdestille.de</a>
+                  </p>
+                </div>
+              </div>
+
               <div class="trust-indicators base-font">
                 <p class="mb-4">
                   <v-icon color="primary" class="me-2">mdi-clock-outline</v-icon>
